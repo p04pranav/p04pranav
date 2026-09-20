@@ -2,7 +2,9 @@
 <img width="100%" src="./assets/Github-Header.png" alt="Pranav S Nair" />
 </p>
 
-<h1 align="center">Hi 👋, I'm Pranav S Nair</h1>
+<p align="center">
+<img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=58A6FF&fontSize=48&fontAlignY=42&height=90&text=Hi%20%F0%9F%91%8B%2C%20I'm%20Pranav%20S%20Nair" width="100%" />
+</p>
 <h3 align="center">Agentic Engineer · Backend & LLM Pipelines · Making Crazy Ideas True...</h3>
 
 <p align="center">
