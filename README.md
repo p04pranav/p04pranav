@@ -1,3 +1,7 @@
+<p align="center">
+<img width="100%" src="./assets/Github-Header.png" alt="Pranav S Nair" />
+</p>
+
 <h1 align="center">Hi 👋, I'm Pranav S Nair</h1>
 <h3 align="center">Agentic Engineer · Backend & LLM Pipelines · Making Crazy Ideas True...</h3>
 
