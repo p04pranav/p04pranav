@@ -205,10 +205,16 @@ Turns raw ideas into structured CRISPE-framework prompts. Live typewriter output
 
 # 📊 GitHub Stats:
 
-<p align="center">
-<img height="180" src="https://github-readme-stats.shion.dev/api/top-langs/?username=p04pranav&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact" />
-<img height="180" src="https://streak-stats.demolab.com/?user=p04pranav&theme=dark&hide_border=false&hide_current_streak=true&hide_longest_streak=true" />
-</p>
+<table align="center">
+<tr>
+<td width="50%" align="center">
+<img width="100%" src="https://github-readme-stats.shion.dev/api/top-langs/?username=p04pranav&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact&card_width=400" />
+</td>
+<td width="50%" align="center">
+<img width="100%" src="https://streak-stats.demolab.com/?user=p04pranav&theme=dark&hide_border=false&hide_current_streak=true&hide_longest_streak=true&card_width=400" />
+</td>
+</tr>
+</table>
 
 ### 👾 Contribution Invaders
 
