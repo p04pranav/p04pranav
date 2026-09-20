@@ -1,0 +1,24 @@
+name: Generate Space Invaders
+on:
+  schedule: [{ cron: "0 */24 * * *" }]
+  workflow_dispatch:
+  push: { branches: [main] }
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: UltimateStrength/space-invaders-contributions@v1
+        with:
+          github_user_name: p04pranav
+          outputs: |
+            dist/invaders.svg
+            dist/invaders-dark.svg?palette=github-dark&color_ship=%2300ff41
+
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
