@@ -246,5 +246,5 @@ Turns raw ideas into structured CRISPE-framework prompts. Live typewriter output
 </p>
 
 <p align="center">
-<a href="https://visitcount.itsvg.in"><img src="https://komarev.com/ghpvc/?username=p04pranav&icon=1&color=brightgreen&label=Profile+Views" /></a>
+<a href="https://visitcount.itsvg.in"><img height="30" src="https://komarev.com/ghpvc/?username=p04pranav&icon=1&color=brightgreen&label=Profile+Views&style=for-the-badge" /></a>
 </p>
