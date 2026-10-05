@@ -110,8 +110,6 @@
 
 ---
 
----
-
 # 🚀 What I've Built:
 
 <p align="center">
@@ -217,7 +215,7 @@ Turns raw ideas into structured CRISPE-framework prompts. Live typewriter output
 <img width="100%" src="https://github-readme-stats.shion.dev/api/top-langs/?username=p04pranav&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact&card_width=400" />
 </td>
 <td width="50%" align="center">
-<img width="100%" src="https://streak-stats.demolab.com/?user=p04pranav&theme=dark&hide_border=false&hide_current_streak=true&hide_longest_streak=true&card_width=400" />
+<img width="100%" src="./assets/contributions.svg" alt="Total Contributions" />
 </td>
 </tr>
 </table>
