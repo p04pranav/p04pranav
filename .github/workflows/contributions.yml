@@ -1,0 +1,76 @@
+name: Contribution card
+
+on:
+  schedule:
+    - cron: "30 0 * * *"   # daily at 06:00 IST
+  workflow_dispatch:        # run manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate contribution card
+        env:
+          GH_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+
+          LOGIN = "p04pranav"
+          TOKEN = os.environ["GH_TOKEN"]
+
+          Q = """query($login:String!,$from:DateTime,$to:DateTime){
+            user(login:$login){contributionsCollection(from:$from,to:$to){
+              contributionYears contributionCalendar{totalContributions}}}}"""
+
+          def gql(v):
+              req = urllib.request.Request(
+                  "https://api.github.com/graphql",
+                  data=json.dumps({"query": Q, "variables": v}).encode(),
+                  headers={"Authorization": f"bearer {TOKEN}",
+                           "Content-Type": "application/json"},
+              )
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  body = json.load(r)
+              if body.get("errors"):
+                  raise SystemExit(f"GraphQL error: {body['errors']}")
+              return body["data"]["user"]["contributionsCollection"]
+
+          base = gql({"login": LOGIN})
+          last_year = base["contributionCalendar"]["totalContributions"]
+          years = base["contributionYears"]
+          total = sum(
+              gql({"login": LOGIN,
+                   "from": f"{y}-01-01T00:00:00Z",
+                   "to": f"{y}-12-31T23:59:59Z"})["contributionCalendar"]["totalContributions"]
+              for y in years
+          )
+          since = min(years) if years else ""
+
+          svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="400" height="165" viewBox="0 0 400 165" font-family="'Segoe UI', Ubuntu, Sans-Serif">
+            <rect x="0.5" y="0.5" rx="4.5" width="399" height="164" fill="#151515" stroke="#e4e2e2"/>
+            <text x="25" y="38" fill="#ffffff" font-size="18" font-weight="600">Total Contributions</text>
+            <text x="25" y="98" fill="#79ff97" font-size="44" font-weight="700">{total:,}</text>
+            <text x="25" y="132" fill="#9f9f9f" font-size="14">{last_year:,} in the last year · since {since}</text>
+          </svg>
+          '''
+          os.makedirs("assets", exist_ok=True)
+          with open("assets/contributions.svg", "w", encoding="utf-8") as f:
+              f.write(svg)
+          print(f"total={total} last_year={last_year}")
+          PY
+
+      - name: Commit card
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/contributions.svg
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: update contribution card [skip ci]"
+          git pull --rebase
+          git push
