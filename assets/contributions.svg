@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="165" viewBox="0 0 400 165" font-family="'Segoe UI', Ubuntu, Sans-Serif">
   <rect x="0.5" y="0.5" rx="4.5" width="399" height="164" fill="#151515" stroke="#e4e2e2"/>
   <text x="25" y="38" fill="#ffffff" font-size="18" font-weight="600">Total Contributions</text>
-  <text x="25" y="98" fill="#79ff97" font-size="44" font-weight="700">758</text>
-  <text x="25" y="132" fill="#9f9f9f" font-size="14">737 in the last year · since 2025</text>
+  <text x="25" y="98" fill="#79ff97" font-size="44" font-weight="700">796</text>
+  <text x="25" y="132" fill="#9f9f9f" font-size="14">775 in the last year · since 2025</text>
 </svg>
